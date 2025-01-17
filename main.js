@@ -1,7 +1,7 @@
 // El desafío que nos gustaría proponer es: ¿qué cambios serían necesarios para que no sea entre 1 y 10? Imaginen que quieran jugar entre 1 y 100, o que el usuario quiera jugar entre 1 y 1000. ¿Qué cambios serían necesarios para que esta funcionalidad pueda ser implementada, pueda ser aplicada? 
 
 const input = document.querySelector("input")
-const send = document.querySelector("#send")
+const send = document.querySelector("#form")
 const newGame = document.querySelector("#newGame")
 const renderIntentos = document.querySelector("#intentos")
 
@@ -10,8 +10,6 @@ let points = 0
 newGame.addEventListener("click", (event) => {
   console.log("reset game");
   window.location.reload() //refrescar pagina
-  // window.location.href = "#"
-  // window.location.href = "https://google.com"
 })
 
 let intentos = prompt("Numero de intentos")  // solo par?
@@ -26,7 +24,8 @@ renderIntentos.textContent = intentos
 
 const cantidad = numRandom(prompt("catidad random"))
 
-send.addEventListener("click", () => {
+send.addEventListener("submit", (event) => {
+  event.preventDefault()
   const numero = input.value
   if (numero != cantidad) {
     intentos--
@@ -47,5 +46,5 @@ send.addEventListener("click", () => {
     console.log(`Ganaste!`);
     // console.log(`Ganaste! ${points} puntos`);
   }
-  // console.log(`userNumber:${numero} numAleatorio:${cantidad}`);
+  console.log(`userNumber:${numero} numAleatorio:${cantidad}`);
 })

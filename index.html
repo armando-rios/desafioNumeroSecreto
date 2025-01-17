@@ -11,14 +11,20 @@
 <body>
   <div class="container">
     <p class="intentos">Te quedan: <span id="intentos"></span> intentos</p>
-    <input type="number" placeholder="ingrese un numero">
-    <div class="btn-contariner">
-      <button id="send">Enviar Intento</button>
-      <button id="newGame">Nuevo Juego</button>
-    </div>
+    <form id="form">
+      <input type="number" placeholder="ingrese un numero">
+      <div class="btn-contariner">
+        <button id="send" type="submit">Enviar Intento</button>
+        <button id="newGame">Nuevo Juego</button>
+      </div>
+    </form>
   </div>
-  <div class="win" id="win"><p>Ganaste!</p></div>
-  <div class="loss" id="loss"><p>Perdiste!</p></div>
+  <div class="win" id="win">
+    <p>Ganaste!</p>
+  </div>
+  <div class="loss" id="loss">
+    <p>Perdiste!</p>
+  </div>
   <script src="main.js"></script>
 </body>
 
