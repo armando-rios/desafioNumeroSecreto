@@ -1,0 +1,100 @@
+* {
+    color-scheme: dark;
+    font-family: monospace;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid #0dcd7a;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button {
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #0dcd7a;
+    background: transparent;
+    color: #0dcd7a;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#send:hover {
+    border: none;
+    background-color: #0dcd7a;
+    color: black;
+}
+
+#newGame {
+    background-color: transparent;
+    border: 2px solid #1f77f1;
+    color: #1f77f1;
+}
+
+#newGame:hover {
+    background-color: #1f77f1;
+    color: white;
+}
+
+.intentos {
+  font-size: 20px;
+  font-weight: bold;
+}
+#intentos {
+  color: red;
+}
+
+.win {
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  color: white;
+}
+.win p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  background: green;
+  border-radius: 10px;
+
+}
+
+.loss {
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  color: white;
+}
+.loss p {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px;
+  background: red;
+  border-radius: 10px;
+
+}
+
+.active {
+    display: flex;
+}
