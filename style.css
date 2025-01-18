@@ -1,100 +1,170 @@
+:root {
+  --ctp-mocha-base: #1e1e2e;
+  --ctp-mocha-surface0: #313244;
+  --ctp-mocha-green: #a6e3a1;
+  --ctp-mocha-blue: #89b4fa;
+  --ctp-mocha-red: #f38ba8;
+  --ctp-mocha-text: #cdd6f4;
+}
+
 * {
     color-scheme: dark;
-    font-family: monospace;
+    font-family: 'JetBrains Mono', monospace;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(135deg, var(--ctp-mocha-base) 0%, var(--ctp-mocha-surface0) 100%);
+    min-height: 100vh;
+}
+
 .container {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
-    gap: 10px;
+    gap: clamp(20px, 4vw, 40px);
     align-items: center;
     justify-content: center;
+    padding: 20px;
+}
+
+.puntos {
+    padding: clamp(8px, 2vw, 10px);
+    text-align: center;
+    background: var(--ctp-mocha-blue);
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: bold;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.puntos:hover {
+    transform: translateY(-2px);
+}
+
+#title {
+    font-size: clamp(30px, 5vw, 40px);
+    font-weight: bold;
+    color: var(--ctp-mocha-green);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: min(90%, 320px);
 }
 
 input {
-    border-radius: 10px;
-    padding: 10px;
-    width: 300px;
+    border-radius: 12px;
+    padding: 12px;
+    width: 100%;
     text-align: center;
-    border: 2px solid #0dcd7a;
-    color: white;
+    border: 2px solid var(--ctp-mocha-green);
+    background: var(--ctp-mocha-base);
+    color: var(--ctp-mocha-text);
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(166, 227, 161, 0.3);
+}
+
+.btn-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
 }
 
 button {
-    border-radius: 10px;
-    padding: 10px;
-    border: 2px solid #0dcd7a;
+    border-radius: 12px;
+    padding: 12px;
+    border: 2px solid var(--ctp-mocha-green);
     background: transparent;
-    color: #0dcd7a;
+    color: var(--ctp-mocha-green);
     font-weight: bold;
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 #send:hover {
-    border: none;
-    background-color: #0dcd7a;
-    color: black;
+    background-color: var(--ctp-mocha-green);
+    color: var(--ctp-mocha-base);
+    transform: translateY(-2px);
 }
 
 #newGame {
-    background-color: transparent;
-    border: 2px solid #1f77f1;
-    color: #1f77f1;
+    border: 2px solid var(--ctp-mocha-blue);
+    color: var(--ctp-mocha-blue);
 }
 
 #newGame:hover {
-    background-color: #1f77f1;
-    color: white;
+    background-color: var(--ctp-mocha-blue);
+    color: var(--ctp-mocha-base);
+    transform: translateY(-2px);
 }
 
 .intentos {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: bold;
+    color: var(--ctp-mocha-text);
 }
+
 #intentos {
-  color: red;
+    color: var(--ctp-mocha-red);
 }
 
-.win {
-  width: 100vw;
-  display: none;
-  justify-content: center;
-  position: fixed;
-  top: 20px;
-  color: white;
+.win, .loss {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    position: fixed;
+    top: 20px;
+    padding: 0 20px;
 }
+
+.win p, .loss p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: slideDown 0.3s ease;
+}
+
 .win p {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 20px;
-  background: green;
-  border-radius: 10px;
-
+    background: var(--ctp-mocha-green);
 }
 
-.loss {
-  width: 100vw;
-  display: none;
-  justify-content: center;
-  position: fixed;
-  top: 20px;
-  color: white;
-}
 .loss p {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 20px;
-  background: red;
-  border-radius: 10px;
-
+    background: var(--ctp-mocha-red);
 }
 
 .active {
     display: flex;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        gap: 20px;
+    }
 }
