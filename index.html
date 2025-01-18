@@ -10,14 +10,16 @@
 
 <body>
   <div class="container">
-    <p class="intentos">Te quedan: <span id="intentos"></span> intentos</p>
+    <h1 id="title">Numero Secreto</h1>
+    <p class="puntos"><span id="puntos">0</span> pts</p>
     <form id="form">
       <input type="number" placeholder="ingrese un numero">
-      <div class="btn-contariner">
+      <div class="btn-container">
         <button id="send" type="submit">Enviar Intento</button>
         <button id="newGame">Nuevo Juego</button>
       </div>
     </form>
+    <p class="intentos">Te quedan: <span id="intentos"></span> intentos</p>
   </div>
   <div class="win" id="win">
     <p>Ganaste!</p>
